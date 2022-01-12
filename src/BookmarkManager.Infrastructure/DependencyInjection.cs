@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using System;
+
 namespace BookmarkManager.Infrastructure
 {
     public static class DependencyInjection
@@ -17,9 +19,9 @@ namespace BookmarkManager.Infrastructure
             else
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(
-                        configuration.GetConnectionString("DefaultConnection"),
-                        b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+                        options.UseSqlServer(
+                            configuration.GetConnectionString("DefaultConnection"),
+                            m => m.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
             }
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
             return services;
