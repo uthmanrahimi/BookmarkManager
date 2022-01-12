@@ -6,10 +6,10 @@ using System.Collections.Generic;
 
 namespace BookmarkManager.Application.Features
 {
-    public class GetBookmarkByCategoryIdQuery : IRequest<IEnumerable<BookmarkDto>>
+    public class GetBookmarksByCategoryIdQuery : IRequest<IEnumerable<BookmarkDto>>
     {
         public int CategoryId { get; init; }
-        public GetBookmarkByCategoryIdQuery(int categoryId)
+        public GetBookmarksByCategoryIdQuery(int categoryId)
         {
             CategoryId = categoryId;
         }

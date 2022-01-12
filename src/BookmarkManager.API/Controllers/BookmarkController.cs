@@ -19,10 +19,17 @@ namespace BookmarkManager.API.Controllers
             _sender = sender;
         }
 
-        [HttpGet("{ownerId}/all")]
+        [HttpGet("owner/{ownerId}/all")]
         public async Task<IActionResult> GetBookmarksByOwnerId(int ownerId)
         {
             var bookmarks = await _sender.Send(new GetBookmarksQuery(ownerId));
+            return Ok(bookmarks);
+        }
+
+        [HttpGet("category/{categoryId}/all")]
+        public async Task<IActionResult> GetBookmarksByCategoryId(int categoryId)
+        {
+            var bookmarks = await _sender.Send(new GetBookmarksByCategoryIdQuery(categoryId));
             return Ok(bookmarks);
         }
 

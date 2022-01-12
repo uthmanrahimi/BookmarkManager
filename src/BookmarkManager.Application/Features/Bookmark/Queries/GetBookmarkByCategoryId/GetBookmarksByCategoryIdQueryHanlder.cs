@@ -15,17 +15,17 @@ using System.Threading.Tasks;
 
 namespace BookmarkManager.Application.Features
 {
-    public class GetBookmarkByCategoryIdQueryHanlder : IRequestHandler<GetBookmarkByCategoryIdQuery, IEnumerable<BookmarkDto>>
+    public class GetBookmarksByCategoryIdQueryHanlder : IRequestHandler<GetBookmarksByCategoryIdQuery, IEnumerable<BookmarkDto>>
     {
         private readonly IApplicationDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public GetBookmarkByCategoryIdQueryHanlder(IApplicationDbContext dbContext, IMapper mapper)
+        public GetBookmarksByCategoryIdQueryHanlder(IApplicationDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<BookmarkDto>> Handle(GetBookmarkByCategoryIdQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<BookmarkDto>> Handle(GetBookmarksByCategoryIdQuery request, CancellationToken cancellationToken)
         {
             return await _dbContext.Bookmarks.Include(b => b.Categories)
                                 .Include(b => b.Categories).ThenInclude(x => x.Category)
