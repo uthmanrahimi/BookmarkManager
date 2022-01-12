@@ -12,4 +12,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BookmarkManager.Infrastructure\BookmarkManager.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
