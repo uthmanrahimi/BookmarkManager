@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BookmarkManager.Application\BookmarkManager.Application.csproj" />
     <ProjectReference Include="..\BookmarkManager.Infrastructure\BookmarkManager.Infrastructure.csproj" />
   </ItemGroup>
 

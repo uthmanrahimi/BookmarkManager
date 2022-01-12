@@ -1,3 +1,4 @@
+using BookmarkManager.Application;
 using BookmarkManager.Infrastructure;
 
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +23,8 @@ namespace BookmarkManager.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructure(Configuration);
+            services.AddApplication();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
