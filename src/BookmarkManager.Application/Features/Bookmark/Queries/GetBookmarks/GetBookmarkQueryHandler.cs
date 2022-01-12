@@ -27,8 +27,10 @@ namespace BookmarkManager.Application.Features
         }
         public async Task<IEnumerable<BookmarkDto>> Handle(GetBookmarksQuery request, CancellationToken cancellationToken)
         {
-            return await _dbContext.Bookmarks.Where(x => x.OwnerId == request.OwnerId)
-                                 .ProjectTo<BookmarkDto>(_mapper.ConfigurationProvider).ToListAsync();
+            return await _dbContext.Bookmarks
+                        .Include(b => b.Categories).ThenInclude(b => b.Category)
+                        .Where(b => b.OwnerId == request.OwnerId)
+                        .ProjectTo<BookmarkDto>(_mapper.ConfigurationProvider).ToListAsync();
         }
     }
 }

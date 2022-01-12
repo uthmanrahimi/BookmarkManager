@@ -5,6 +5,8 @@ using BookmarkManager.Application.Interfaces;
 
 using MediatR;
 
+using Microsoft.EntityFrameworkCore;
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,7 +25,9 @@ namespace BookmarkManager.Application.Features
         }
         public async Task<BookmarkDto> Handle(GetBookmarkQuery request, CancellationToken cancellationToken)
         {
-            var bookmark = await _dbContext.Bookmarks.FindAsync(request.Id);
+            var bookmark = await _dbContext.Bookmarks
+                                .Include(b => b.Categories).ThenInclude(b => b.Category)
+                                .SingleOrDefaultAsync(b => b.Id == request.Id);
             if (bookmark == null)
                 throw new NullReferenceException($"Bookmark with given ID ({request.Id}) does not exist.");// TODO: create custome exception class 
 
