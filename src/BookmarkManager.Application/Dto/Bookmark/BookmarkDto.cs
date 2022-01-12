@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 
 using BookmarkManager.Application.Common;
-using BookmarkManager.Application.Dto.Category;
 using BookmarkManager.Domain.Entities;
 
 using System.Collections.Generic;

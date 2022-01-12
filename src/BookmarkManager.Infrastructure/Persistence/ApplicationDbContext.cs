@@ -12,6 +12,7 @@ namespace BookmarkManager.Infrastructure.Persistence
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public DbSet<BookmarkEntity> Bookmarks { get; set; }
+        public DbSet<CategoryEntity> Categories { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options){}
 
