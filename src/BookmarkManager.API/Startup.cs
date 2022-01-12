@@ -1,5 +1,8 @@
 using BookmarkManager.Application;
+using BookmarkManager.Application.Features;
 using BookmarkManager.Infrastructure;
+
+using FluentValidation.AspNetCore;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,8 +27,7 @@ namespace BookmarkManager.API
         {
             services.AddInfrastructure(Configuration);
             services.AddApplication();
-
-            services.AddControllers();
+            services.AddControllers().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<CreateBookmarkCommandValidator>());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookmarkManager.API", Version = "v1" });

@@ -51,6 +51,8 @@ namespace BookmarkManager.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategoryById(int id)
         {
+            if (id == 0)
+                return BadRequest();
             return Ok(await _sender.Send(new DeleteCategoryCommand(id)));
         }
 
