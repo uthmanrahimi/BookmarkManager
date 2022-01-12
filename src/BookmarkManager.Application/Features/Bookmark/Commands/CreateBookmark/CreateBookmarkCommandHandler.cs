@@ -27,7 +27,6 @@ namespace BookmarkManager.Application.Features
             var bookmark = _mapper.Map<BookmarkEntity>(request);
             await _dbContext.Bookmarks.AddAsync(bookmark, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
-
             return _mapper.Map<BookmarkDto>(bookmark);
         }
     }

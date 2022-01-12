@@ -21,7 +21,7 @@ namespace BookmarkManager.Application.Dto
         public void Mapping(Profile profile)
         {
             profile.CreateMap<BookmarkEntity, BookmarkDto>()
-                .ForMember(dest => dest.Categories, src => src.MapFrom(b => b.Categories.Select(x => new CategoryDto { Id = x.CategoryId, Title = x.Category.Title })));
+                .ForMember(dest => dest.Categories, src => src.MapFrom(b => b.Categories.Select(x => new CategoryDto { Id = x.CategoryId, Title = x.Category == null ? string.Empty : x.Category.Title })));
         }
 
     }
