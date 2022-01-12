@@ -2,9 +2,9 @@
 
 namespace BookmarkManager.Domain.Entities
 {
-    public class CategoryEntity:BaseEntity
+    public class Category:BaseEntity
     {
         public string Title { get; set; }
-        public ICollection<BookmarkCategoryEntity> Bookmarks { get; set; }
+        public ICollection<BookmarkCategory> Bookmarks { get; set; }
     }
 }

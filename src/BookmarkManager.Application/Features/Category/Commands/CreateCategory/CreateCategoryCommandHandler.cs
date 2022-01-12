@@ -24,7 +24,7 @@ namespace BookmarkManager.Application.Features
 
         public async Task<CategoryDto> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var category = _mapper.Map<CategoryEntity>(request);
+            var category = _mapper.Map<Category>(request);
             await _dbContext.Categories.AddAsync(category, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return _mapper.Map<CategoryDto>(category);

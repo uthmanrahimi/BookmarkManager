@@ -14,8 +14,8 @@ namespace BookmarkManager.Infrastructure.Persistence
     {
         private readonly ICurrentUserService _currentUserService;
 
-        public DbSet<BookmarkEntity> Bookmarks { get; set; }
-        public DbSet<CategoryEntity> Categories { get; set; }
+        public DbSet<Bookmark> Bookmarks { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public ApplicationDbContext(DbContextOptions options, ICurrentUserService currentUserService) : base(options)
         {
@@ -31,12 +31,12 @@ namespace BookmarkManager.Infrastructure.Persistence
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            foreach (Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<AuditableEntity> entry in ChangeTracker.Entries<AuditableEntity>())
+            foreach (Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<Auditable> entry in ChangeTracker.Entries<Auditable>())
             {
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Entity.Created = DateTime.Now;
+                        entry.Entity.CreatedOn = DateTime.Now;
                         break;
                     case EntityState.Modified:
                         break;

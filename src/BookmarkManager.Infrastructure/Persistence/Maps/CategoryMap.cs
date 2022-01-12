@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BookmarkManager.Infrastructure.Persistence.Maps
 {
-    public class CategoryMap : IEntityTypeConfiguration<CategoryEntity>
+    public class CategoryMap : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<CategoryEntity> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.ToTable("Categories");
             builder.Property(x => x.Title).HasMaxLength(500).IsRequired();

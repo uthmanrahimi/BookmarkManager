@@ -13,13 +13,13 @@ namespace BookmarkManager.Application.Common
     {
         public MappingProfile()
         {
-            CreateMap<CreateBookmarkCommand, BookmarkEntity>()
-                .ForMember(dest => dest.Categories, src => src.MapFrom(x => x.Categories.Select(c => new BookmarkCategoryEntity { CategoryId = c })));
-            CreateMap<UpdateBookmarkCommand, BookmarkEntity>()
-                .ForMember(dest => dest.Categories, src => src.MapFrom(x => x.Categories.Select(c => new BookmarkCategoryEntity { CategoryId = c })));
-            CreateMap<CreateCategoryCommand, CategoryEntity>();
-            CreateMap<UpdateCategoryCommand, CategoryEntity>();
-            CreateMap<CreateBookmarkV2Command, BookmarkEntity>().ForMember(dest => dest.Categories, src => src.Ignore());
+            CreateMap<CreateBookmarkCommand, Bookmark>()
+                .ForMember(dest => dest.Categories, src => src.MapFrom(x => x.Categories.Select(c => new BookmarkCategory { CategoryId = c })));
+            CreateMap<UpdateBookmarkCommand, Bookmark>()
+                .ForMember(dest => dest.Categories, src => src.MapFrom(x => x.Categories.Select(c => new BookmarkCategory { CategoryId = c })));
+            CreateMap<CreateCategoryCommand, Category>();
+            CreateMap<UpdateCategoryCommand, Category>();
+            CreateMap<CreateBookmarkV2Command, Bookmark>().ForMember(dest => dest.Categories, src => src.Ignore());
 
             ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
         }

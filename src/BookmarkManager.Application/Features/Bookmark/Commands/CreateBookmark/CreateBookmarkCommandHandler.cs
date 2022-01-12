@@ -24,7 +24,7 @@ namespace BookmarkManager.Application.Features
 
         public async Task<BookmarkDto> Handle(CreateBookmarkCommand request, CancellationToken cancellationToken)
         {
-            var bookmark = _mapper.Map<BookmarkEntity>(request);
+            var bookmark = _mapper.Map<Bookmark>(request);
             await _dbContext.Bookmarks.AddAsync(bookmark, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return _mapper.Map<BookmarkDto>(bookmark);

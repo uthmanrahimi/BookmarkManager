@@ -9,8 +9,8 @@ namespace BookmarkManager.Application.Interfaces
 {
     public interface IApplicationDbContext
     {
-        DbSet<BookmarkEntity> Bookmarks { get; set; }
-        DbSet<CategoryEntity> Categories { get; set; }
+        DbSet<Bookmark> Bookmarks { get; set; }
+        DbSet<Category> Categories { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

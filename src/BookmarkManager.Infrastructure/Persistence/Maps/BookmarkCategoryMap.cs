@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BookmarkManager.Infrastructure.Persistence.Maps
 {
-    public class BookmarkCategoryMap: IEntityTypeConfiguration<BookmarkCategoryEntity>
+    public class BookmarkCategoryMap: IEntityTypeConfiguration<BookmarkCategory>
     {
-        public void Configure(EntityTypeBuilder<BookmarkCategoryEntity> builder)
+        public void Configure(EntityTypeBuilder<BookmarkCategory> builder)
         {
             builder.ToTable("BookmarkCategories");
             builder.HasKey(e => new { e.BookmarkId, e.CategoryId });

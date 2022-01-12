@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace BookmarkManager.Application.Dto
 {
-    public class BookmarkDto : IMapFrom<BookmarkEntity>
+    public class BookmarkDto : IMapFrom<Bookmark>
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -19,7 +19,7 @@ namespace BookmarkManager.Application.Dto
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<BookmarkEntity, BookmarkDto>()
+            profile.CreateMap<Bookmark, BookmarkDto>()
                 .ForMember(dest => dest.Categories, src => src.MapFrom(b => b.Categories.Select(x => new CategoryDto { Id = x.CategoryId, Title = x.Category == null ? string.Empty : x.Category.Title })));
         }
 
