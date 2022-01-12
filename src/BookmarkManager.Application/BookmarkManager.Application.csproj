@@ -14,8 +14,4 @@
     <ProjectReference Include="..\BookmarkManager.Domain\BookmarkManager.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Bookmark\Commands\" />
-  </ItemGroup>
-
 </Project>

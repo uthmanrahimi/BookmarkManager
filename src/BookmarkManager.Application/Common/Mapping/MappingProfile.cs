@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 
+using BookmarkManager.Application.Features;
+using BookmarkManager.Domain.Entities;
+
 using System;
 using System.Linq;
 using System.Reflection;
@@ -10,6 +13,11 @@ namespace BookmarkManager.Application.Common
     {
         public MappingProfile()
         {
+            CreateMap<CreateBookmarkCommand, BookmarkEntity>()
+                .ForMember(dest => dest.Categories, src => src.MapFrom(x => x.Categories.Select(c => new BookmarkCategoryEntity { CategoryId = c })));
+            CreateMap<UpdateBookmarkCommand, BookmarkEntity>()
+                .ForMember(dest => dest.Categories, src => src.MapFrom(x => x.Categories.Select(c => new BookmarkCategoryEntity { CategoryId = c })));
+
             ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
@@ -17,8 +25,7 @@ namespace BookmarkManager.Application.Common
         {
             var types = assembly.GetExportedTypes()
                 .Where(t => t.GetInterfaces().Any(i =>
-                    i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapFrom<>)))
-                .ToList();
+                    i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapFrom<>))).ToList();
 
             foreach (var type in types)
             {
@@ -31,5 +38,7 @@ namespace BookmarkManager.Application.Common
 
             }
         }
+
+
     }
 }
