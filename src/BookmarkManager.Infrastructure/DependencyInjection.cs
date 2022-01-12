@@ -5,8 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using System;
-
 namespace BookmarkManager.Infrastructure
 {
     public static class DependencyInjection

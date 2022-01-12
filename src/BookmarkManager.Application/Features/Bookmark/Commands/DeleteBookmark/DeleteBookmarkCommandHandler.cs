@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-
+﻿
 using BookmarkManager.Application.Interfaces;
 
 using MediatR;
