@@ -12,6 +12,6 @@ namespace BookmarkManager.Domain.Entities
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public ICollection<CategoryEntity> Categories { get; set; }
+        public ICollection<BookmarkCategoryEntity> Categories { get; set; }
     }
 }
