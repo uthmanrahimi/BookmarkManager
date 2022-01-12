@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BookmarkManager.Domain.Entities
 {
-    public class BookmarkEntity: BaseEntity
+    public class BookmarkEntity : BaseEntity
     {
         public string Title { get; set; }
         public string Location { get; set; }
@@ -12,6 +12,6 @@ namespace BookmarkManager.Domain.Entities
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public ICollection<BookmarkCategoryEntity> Categories { get; set; }
+        public ICollection<BookmarkCategoryEntity> Categories { get; set; } = new List<BookmarkCategoryEntity>();
     }
 }

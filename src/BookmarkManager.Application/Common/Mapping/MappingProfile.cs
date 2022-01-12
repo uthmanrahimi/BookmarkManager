@@ -19,6 +19,7 @@ namespace BookmarkManager.Application.Common
                 .ForMember(dest => dest.Categories, src => src.MapFrom(x => x.Categories.Select(c => new BookmarkCategoryEntity { CategoryId = c })));
             CreateMap<CreateCategoryCommand, CategoryEntity>();
             CreateMap<UpdateCategoryCommand, CategoryEntity>();
+            CreateMap<CreateBookmarkV2Command, BookmarkEntity>().ForMember(dest => dest.Categories, src => src.Ignore());
 
             ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
         }

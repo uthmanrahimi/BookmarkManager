@@ -48,6 +48,13 @@ namespace BookmarkManager.API.Controllers
             return CreatedAtAction(nameof(Get), new { id = bookmark.Id }, bookmark);
         }
 
+        [HttpPost("createBookmarkV2")]
+        public async Task<IActionResult> CreateBookmarkV2([FromBody] CreateBookmarkV2Command command)
+        {
+            var bookmark = await _sender.Send(command);
+            return CreatedAtAction(nameof(Get), new { id = bookmark.Id }, bookmark);
+        }
+
         [HttpPut]
         public async Task<IActionResult> UpdateBookmark([FromBody] UpdateBookmarkCommand command)
         {
