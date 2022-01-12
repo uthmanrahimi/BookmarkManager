@@ -1,11 +1,12 @@
 ﻿
+using BookmarkManager.Application.Common.Exceptions;
 using BookmarkManager.Application.Interfaces;
 
 using MediatR;
 
 using Microsoft.EntityFrameworkCore;
 
-using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,7 +25,7 @@ namespace BookmarkManager.Application.Features
         {
             var bookmark = await _dbContext.Bookmarks.SingleOrDefaultAsync(b => b.Id == request.Id);
             if (bookmark == null)
-                throw new NullReferenceException($"Bookmark with given ID ({request.Id}) does not exist.");// TODO: create custome exception class 
+                throw new RestException(HttpStatusCode.NotFound,$"Bookmark with given ID ({request.Id}) does not exist.");// TODO: create custome exception class 
 
             _dbContext.Bookmarks.Remove(bookmark);
             await _dbContext.SaveChangesAsync(cancellationToken);

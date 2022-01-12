@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 
+using BookmarkManager.Application.Common.Exceptions;
 using BookmarkManager.Application.Dto;
 using BookmarkManager.Application.Interfaces;
 
 using MediatR;
 
-using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,7 +27,7 @@ namespace BookmarkManager.Application.Features
         {
             var category =await  _dbContext.Categories.FindAsync(request.Id);
             if (category == null)
-                throw new NullReferenceException($"Category with given ID ({request.Id}) does not exist.");// TODO: create custome exception class 
+                throw new RestException(HttpStatusCode.NotFound,$"Category with given ID ({request.Id}) does not exist.");
 
 
             category = _mapper.Map(request, category);

@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 
+using BookmarkManager.Application.Common.Exceptions;
 using BookmarkManager.Application.Dto;
 using BookmarkManager.Application.Interfaces;
 
 using MediatR;
 
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,7 +26,7 @@ namespace BookmarkManager.Application.Features
         {
             var category = await _dbContext.Categories.FindAsync(request.Id);
             if (category == null)
-                return null;
+                throw new RestException(HttpStatusCode.NotFound, $"Category with given ID ({request.Id}) does not exist.");
             return _mapper.Map<CategoryDto>(category);
         }
     }

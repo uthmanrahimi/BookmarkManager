@@ -1,11 +1,12 @@
 ﻿
+using BookmarkManager.Application.Common.Exceptions;
 using BookmarkManager.Application.Interfaces;
 
 using MediatR;
 
 using Microsoft.EntityFrameworkCore;
 
-using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,7 +25,7 @@ namespace BookmarkManager.Application.Features
         {
             var category = await _dbContext.Categories.SingleOrDefaultAsync(c => c.Id == request.Id);
             if (category == null)
-                throw new NullReferenceException($"Category with given ID ({request.Id}) does not exist.");// TODO: create custome exception class 
+                throw new RestException(HttpStatusCode.NotFound,$"Category with given ID ({request.Id}) does not exist.");// TODO: create custome exception class 
 
             _dbContext.Categories.Remove(category);
             await _dbContext.SaveChangesAsync(cancellationToken);
