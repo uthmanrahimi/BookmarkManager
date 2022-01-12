@@ -19,9 +19,7 @@ namespace BookmarkManager.Infrastructure
             else
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                        options.UseSqlServer(
-                            configuration.GetConnectionString("DefaultConnection"),
-                            m => m.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+                        options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             }
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
             return services;

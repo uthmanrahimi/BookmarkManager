@@ -1,5 +1,7 @@
+using BookmarkManager.API.Services;
 using BookmarkManager.Application;
 using BookmarkManager.Application.Features;
+using BookmarkManager.Application.Interfaces;
 using BookmarkManager.Infrastructure;
 
 using FluentValidation.AspNetCore;
@@ -32,6 +34,8 @@ namespace BookmarkManager.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookmarkManager.API", Version = "v1" });
             });
+
+            services.AddSingleton<ICurrentUserService, CurrentUserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

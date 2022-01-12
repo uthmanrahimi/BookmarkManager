@@ -3,6 +3,7 @@ using BookmarkManager.Domain.Entities;
 
 using Microsoft.EntityFrameworkCore;
 
+using System;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,10 +12,15 @@ namespace BookmarkManager.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
+        private readonly ICurrentUserService _currentUserService;
+
         public DbSet<BookmarkEntity> Bookmarks { get; set; }
         public DbSet<CategoryEntity> Categories { get; set; }
 
-        public ApplicationDbContext(DbContextOptions options) : base(options){}
+        public ApplicationDbContext(DbContextOptions options, ICurrentUserService currentUserService) : base(options)
+        {
+            _currentUserService = currentUserService;
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -30,6 +36,7 @@ namespace BookmarkManager.Infrastructure.Persistence
                 switch (entry.State)
                 {
                     case EntityState.Added:
+                        entry.Entity.Created = DateTime.Now;
                         break;
                     case EntityState.Modified:
                         break;
