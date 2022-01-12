@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89597ADE-08C7-41DA-AF61-0EA531A811D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookmarkManager.Domain", "src\BookmarkManager.Domain\BookmarkManager.Domain.csproj", "{D039C5C2-F720-4EFF-86B9-541185988097}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookmarkManager.Domain", "src\BookmarkManager.Domain\BookmarkManager.Domain.csproj", "{D039C5C2-F720-4EFF-86B9-541185988097}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookmarkManager.Infrastructure", "src\BookmarkManager.Infrastructure\BookmarkManager.Infrastructure.csproj", "{19990C12-FCDF-4236-95F2-67D953C2600D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookmarkManager.Application", "src\BookmarkManager.Application\BookmarkManager.Application.csproj", "{00015FBB-BE11-4AF5-87BA-FBB35ECB6BA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +21,22 @@ Global
 		{D039C5C2-F720-4EFF-86B9-541185988097}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D039C5C2-F720-4EFF-86B9-541185988097}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D039C5C2-F720-4EFF-86B9-541185988097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19990C12-FCDF-4236-95F2-67D953C2600D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19990C12-FCDF-4236-95F2-67D953C2600D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19990C12-FCDF-4236-95F2-67D953C2600D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19990C12-FCDF-4236-95F2-67D953C2600D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00015FBB-BE11-4AF5-87BA-FBB35ECB6BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00015FBB-BE11-4AF5-87BA-FBB35ECB6BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00015FBB-BE11-4AF5-87BA-FBB35ECB6BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00015FBB-BE11-4AF5-87BA-FBB35ECB6BA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D039C5C2-F720-4EFF-86B9-541185988097} = {89597ADE-08C7-41DA-AF61-0EA531A811D7}
+		{19990C12-FCDF-4236-95F2-67D953C2600D} = {89597ADE-08C7-41DA-AF61-0EA531A811D7}
+		{00015FBB-BE11-4AF5-87BA-FBB35ECB6BA0} = {89597ADE-08C7-41DA-AF61-0EA531A811D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6ADBD17A-AEFB-4726-A695-E45E19A16926}
