@@ -14,6 +14,7 @@ namespace BookmarkManager.Infrastructure.Persistence.Maps
             builder.Property(x => x.Location).IsRequired().HasMaxLength(1000);
             builder.Property(x => x.Description).HasMaxLength(1000);
             builder.Property(x => x.CreatedAt).IsRequired();
+            //builder.HasQueryFilter(x => !x.IsDeleted); for applying global filter
         }
     }
 }

@@ -26,7 +26,7 @@ namespace BookmarkManager.Application.Features
         }
         public async Task<IEnumerable<CategoryDto>> Handle(GetCategoriesQuery request, CancellationToken cancellationToken)
         {
-            return await _dbContext.Categories
+            return await _dbContext.Categories.AsNoTracking()
                         .ProjectTo<CategoryDto>(_mapper.ConfigurationProvider).ToListAsync();
         }
     }

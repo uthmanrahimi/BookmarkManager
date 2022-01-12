@@ -25,7 +25,7 @@ namespace BookmarkManager.Application.Features
         }
         public async Task<BookmarkDto> Handle(GetBookmarkQuery request, CancellationToken cancellationToken)
         {
-            var bookmark = await _dbContext.Bookmarks
+            var bookmark = await _dbContext.Bookmarks.AsNoTrackingWithIdentityResolution()
                                 .Include(b => b.Categories).ThenInclude(b => b.Category)
                                 .SingleOrDefaultAsync(b => b.Id == request.Id);
             if (bookmark == null)
