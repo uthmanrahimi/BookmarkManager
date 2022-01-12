@@ -7,11 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89597ADE-08C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookmarkManager.Domain", "src\BookmarkManager.Domain\BookmarkManager.Domain.csproj", "{D039C5C2-F720-4EFF-86B9-541185988097}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookmarkManager.Infrastructure", "src\BookmarkManager.Infrastructure\BookmarkManager.Infrastructure.csproj", "{19990C12-FCDF-4236-95F2-67D953C2600D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookmarkManager.Infrastructure", "src\BookmarkManager.Infrastructure\BookmarkManager.Infrastructure.csproj", "{19990C12-FCDF-4236-95F2-67D953C2600D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookmarkManager.Application", "src\BookmarkManager.Application\BookmarkManager.Application.csproj", "{00015FBB-BE11-4AF5-87BA-FBB35ECB6BA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookmarkManager.Application", "src\BookmarkManager.Application\BookmarkManager.Application.csproj", "{00015FBB-BE11-4AF5-87BA-FBB35ECB6BA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookmarkManager.API", "src\BookmarkManager.API\BookmarkManager.API.csproj", "{68567E7E-3B3D-491C-A01B-74E5AE1B196B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookmarkManager.API", "src\BookmarkManager.API\BookmarkManager.API.csproj", "{68567E7E-3B3D-491C-A01B-74E5AE1B196B}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{94EA7468-7AD8-4CFC-BFE4-08C1ED769161}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{68567E7E-3B3D-491C-A01B-74E5AE1B196B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68567E7E-3B3D-491C-A01B-74E5AE1B196B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68567E7E-3B3D-491C-A01B-74E5AE1B196B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94EA7468-7AD8-4CFC-BFE4-08C1ED769161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94EA7468-7AD8-4CFC-BFE4-08C1ED769161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94EA7468-7AD8-4CFC-BFE4-08C1ED769161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94EA7468-7AD8-4CFC-BFE4-08C1ED769161}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
