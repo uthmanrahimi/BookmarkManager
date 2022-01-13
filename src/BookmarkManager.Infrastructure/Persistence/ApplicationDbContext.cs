@@ -37,8 +37,11 @@ namespace BookmarkManager.Infrastructure.Persistence
                 {
                     case EntityState.Added:
                         entry.Entity.CreatedOn = DateTime.Now;
+                        entry.Entity.CreatedBy = _currentUserService.UserId;
                         break;
                     case EntityState.Modified:
+                        entry.Entity.LastModifiedOn = DateTime.Now;
+                        entry.Entity.LastModifiedBy = _currentUserService.UserId;
                         break;
                 }
             }
